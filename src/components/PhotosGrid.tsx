@@ -2,7 +2,6 @@ import React from "react";
 import PhotoCard from "./PhotoCard";
 import { Photo } from "@/types";
 
-// Define types to match previous type definitions
 
 export default function PhotosGrid({
   photos,

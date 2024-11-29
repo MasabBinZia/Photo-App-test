@@ -19,7 +19,7 @@ export default function PhotoCard({
 }: {
   photo: Photo;
 }) {
-  const [comments, setComments] = useState<Comment[]>(photo.comments);
+  const [comments, setComments] = useState<Comment[]>(photo.comments || []);
 
   const handleNewComment = (newComment: NewComment) => {
     setComments((prevComments) => [newComment, ...prevComments]);

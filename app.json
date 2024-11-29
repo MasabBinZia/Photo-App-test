@@ -1,7 +1,7 @@
 {
-  "name": "NEON OSS Starter Kit",
-  "description": "A full-stack starter kit using NEON, Next.js, Prisma, and NextAuth.js.",
-  "repository": "https://github.com/iamspruce/neon-oss-starter",
+  "name": "Photos App",
+  "description": "A full-stack Photos APP using NEON, Next.js, Prisma, UploadThng and NextAuth.js.",
+  "repository": "",
   "env": {
     "DATABASE_URL": {
       "description": "The NEON PostgreSQL connection string",
@@ -18,14 +18,7 @@
     "GITHUB_SECRTET": {
       "description": "Your Github app SECRET, used for auth by GithubProvider",
       "value": "YOUR_GITHUB_SECRET"
-    },
-    "GOOGLE_ID": {
-      "description": "Your Google app ID, used for auth by GoogleProvider",
-      "value": "YOUR_GOOGLE_SECRET"
-    },
-    "GOOGLE_SECRTET": {
-      "description": "Your Google app SECRET, used for auth by GoogleProvider",
-      "value": "YOUR_GOOGLE_SECRET"
     }
+    
   }
 }

@@ -17,6 +17,7 @@ import { addComment } from "@/Apis";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useSession } from "next-auth/react";
+import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   comment: z
@@ -36,7 +37,6 @@ export default function AddComment({
 
   const { data: session } = useSession();
 
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -52,7 +52,7 @@ export default function AddComment({
         id: `temp-${Date.now()}`,
         text: values.comment,
         user: {
-          name: session?.user?.name 
+          name: session?.user?.name,
         },
       };
 
@@ -97,7 +97,13 @@ export default function AddComment({
           className="w-full bg-blue-600"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "Submitting..." : "Comment"}
+          {isSubmitting ? (
+            <p className="flex justify-center items-center gap-1">
+              <Loader2 className="animate-spin h-4 w-4" /> Commenting...
+            </p>
+          ) : (
+            "Comment"
+          )}
         </Button>
       </form>
     </Form>

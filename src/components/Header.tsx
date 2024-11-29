@@ -7,7 +7,7 @@ export default function Header() {
   const { data: session } = useSession();
 
   return (
-    <header className="bg-gray-800 text-white p-4">
+    <header className="bg-gray-800 text-white p-4 my-6 rounded-2xl px-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-semibold">Photo Gallery</h1>
         <div className="flex items-center">
@@ -23,7 +23,7 @@ export default function Header() {
           {session ? (
             <Button
               onClick={() => signOut()}
-              className="bg-red-500 hover:bg-red-600 text-white p-2 rounded"
+              className="bg-red-500 hover:bg-red-600 text-white p-2"
             >
               Sign Out
             </Button>

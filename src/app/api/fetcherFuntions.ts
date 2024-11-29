@@ -1,7 +1,4 @@
 import { prisma } from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
-
-
 
 export async function fetchPhotos() {
   try {
@@ -31,15 +28,13 @@ export async function fetchPhotos() {
   }
 }
 
-
-
 export async function fetchComments() {
   try {
     console.log("Fetching comments...");
 
     const comments = await prisma.comment.findMany({
       include: {
-        user: true, // Include user details for each comment
+        user: true,
       },
       orderBy: { createdAt: "desc" },
     });
@@ -57,4 +52,3 @@ export async function fetchComments() {
     throw new Error("Unable to retrieve comments. Please try again later.");
   }
 }
-

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "../styles/globals.css";
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 
 import { auth } from "@/auth";
 import { SessionProvider } from "next-auth/react";
@@ -10,7 +10,6 @@ import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "@/lib/uploadthing/core";
 
 import { cn } from "@/lib/utils";
-import Header from "@/components/Header";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -37,8 +36,9 @@ export default async function RootLayout({
             "min-h-screen bg-background font-sans antialiased",
             fontSans.variable
           )}
-        >          <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-
+        >
+          {" "}
+          <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <main className="container">{children}</main>
           <Toaster richColors position="top-center" />
         </body>

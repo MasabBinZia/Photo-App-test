@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   Dialog,
   DialogContent,
@@ -11,11 +11,17 @@ import Image from "next/image";
 import AddComment from "./AddComment";
 import { useState } from "react";
 
-export default function PhotoCard({ photo,comment }: { photo: any,comment:any }) {
+export default function PhotoCard({
+  photo,
+  comment,
+}: {
+  photo: any;
+  comment: any;
+}) {
   const [comments, setComments] = useState(photo.comments);
 
   const handleNewComment = (newComment: any) => {
-    setComments((prevComments:any) => [newComment, ...prevComments]);
+    setComments((prevComments: any) => [newComment, ...prevComments]);
   };
 
   return (

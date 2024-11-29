@@ -48,10 +48,13 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(comment, { status: 201 });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error adding comment:", error);
     return NextResponse.json(
-      { error: "Failed to Comment on Photo", details: error.message },
+      {
+        error: "Failed to Comment on Photo",
+        details: error instanceof Error ? error.message : String(error),
+      },
       { status: 500 }
     );
   }

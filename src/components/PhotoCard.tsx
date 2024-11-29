@@ -8,20 +8,21 @@ import {
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Image from "next/image";
-import AddComment from "./AddComment";
+import AddComment, { NewComment } from "./AddComment";
 import { useState } from "react";
+import { Comment, Photo } from "@/types";
+
+
 
 export default function PhotoCard({
   photo,
-  comment,
 }: {
-  photo: any;
-  comment: any;
+  photo: Photo;
 }) {
-  const [comments, setComments] = useState(photo.comments);
+  const [comments, setComments] = useState<Comment[]>(photo.comments);
 
-  const handleNewComment = (newComment: any) => {
-    setComments((prevComments: any) => [newComment, ...prevComments]);
+  const handleNewComment = (newComment: NewComment) => {
+    setComments((prevComments) => [newComment, ...prevComments]);
   };
 
   return (
@@ -52,7 +53,7 @@ export default function PhotoCard({
 
             <ScrollArea className="w-full h-48 border-t pt-2">
               {comments.length > 0 ? (
-                comments.map((comment: any) => (
+                comments.map((comment) => (
                   <div key={comment.id} className="text-sm mb-2">
                     <strong>{comment.user.name}</strong>: {comment.text}
                   </div>

@@ -26,12 +26,20 @@ const formSchema = z.object({
     .max(100, "Comment is too long"),
 });
 
+export type NewComment = {
+  id: string;
+  text: string;
+  user: {
+    name: string | null; 
+  };
+};
+
 export default function AddComment({
   photoId,
   onNewComment,
 }: {
   photoId: string;
-  onNewComment: (newComment: any) => void;
+  onNewComment: (newComment: NewComment) => void;
 }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -52,7 +60,7 @@ export default function AddComment({
         id: `temp-${Date.now()}`,
         text: values.comment,
         user: {
-          name: session?.user?.name,
+          name: session?.user?.name || "",
         },
       };
 
